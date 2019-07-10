@@ -50,3 +50,4 @@ class WeightListItem extends StatelessWidget {
     );
   }
 }
+
