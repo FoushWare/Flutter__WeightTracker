@@ -6,33 +6,35 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 
-import 'Model/WeightSave.dart';
-class AddEntryDialog extends StatefulWidget {
+import 'Model/WeightEntry.dart';
+class WeightEntryDialog extends StatefulWidget {
   final double initialWeight;
-  final WeightSave weightSaveToEdit;
+  final WeightEntry weightSaveToEdit;
 
-  AddEntryDialog.add(this.initialWeight) : weightSaveToEdit = null;
+  WeightEntryDialog.add(this.initialWeight) : weightSaveToEdit = null;
 
-  AddEntryDialog.edit(this.weightSaveToEdit)
+  WeightEntryDialog.edit(this.weightSaveToEdit)
       : initialWeight = weightSaveToEdit.weight;
 
   @override
-  AddEntryDialogState createState() {
+  WeightEntryDialogState createState() {
     if (weightSaveToEdit != null) {
-      return new AddEntryDialogState(weightSaveToEdit.dateTime,
+      return new WeightEntryDialogState(weightSaveToEdit.dateTime,
           weightSaveToEdit.weight, weightSaveToEdit.note);
     } else {
-      return new AddEntryDialogState(new DateTime.now(), initialWeight, null);
+      return new WeightEntryDialogState(new DateTime.now(), initialWeight, null);
     }
   }
 }
 
-class AddEntryDialogState extends State<AddEntryDialog> {
+
+
+class WeightEntryDialogState extends State<WeightEntryDialog> {
   DateTime _dateTime = new DateTime.now();
   double _weight;
   String _note;
 
-  AddEntryDialogState(this._dateTime, this._weight, this._note);
+  WeightEntryDialogState(this._dateTime, this._weight, this._note);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class AddEntryDialogState extends State<AddEntryDialog> {
                 onPressed: () {
                   Navigator
                       .of(context)
-                      .pop(new WeightSave(_dateTime, _weight, _note));
+                      .pop(new WeightEntry(_dateTime, _weight, _note));
                 },
                 child: new Text('SAVE',
                     style: Theme

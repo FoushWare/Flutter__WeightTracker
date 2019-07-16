@@ -19,6 +19,8 @@ environment:
 dependencies:
   intl: ^0.15.8
   numberpicker: ^1.0.0
+  firebase_database: any
+
 
   flutter:
     sdk: flutter
@@ -28,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
 

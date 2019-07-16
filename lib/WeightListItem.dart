@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'Model/WeightSave.dart';
+import 'Model/WeightEntry.dart';
 
 class WeightListItem extends StatelessWidget {
-  final WeightSave weightSave;
+  final WeightEntry weightSave;
   final double weightDifference;
 
   const WeightListItem( this.weightSave, this.weightDifference);
